@@ -1,47 +1,72 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script>
+import axios from "axios";
+import { store } from "./data/store";
+import card from "./components/projectCard.vue";
+
+export default {
+	components: {
+		card,
+	},
+	data() {
+		return {
+			projects: [],
+			loading: true,
+			error: false,
+		};
+	},
+
+	methods: {
+		getApi() {
+			axios
+				.get(store.apiUrl)
+				.then((result) => {
+					this.loading = false;
+					this.projects = result.data;
+					console.log(this.projects);
+				})
+				.catch((error) => {
+					this.loading = false;
+					console.log(error);
+					this.error = error.message;
+				});
+		},
+	},
+
+	mounted() {
+		this.getApi();
+	},
+};
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+	<div class="main-wrapper">
+		<div class="container my-5">
+			<h1>Boolfolio Home</h1>
+			<div v-if="!loading">
+				<h3>My Projects</h3>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+				<div class="d-flex">
+					<div
+						v-for="project in projects"
+						:key="project.id"
+						class="card mx-2"
+						style="width: 18rem"
+					>
+						<img
+							:src="project.image"
+							class="card-img-top"
+							:alt="projects.title"
+						/>
+						<div class="card-body">
+							<h5 class="card-title">{{ project.title }}</h5>
+							<p class="card-text">{{ project.description }}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p v-else>loading...</p>
+		</div>
+	</div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+<style lang="scss" scoped></style>
