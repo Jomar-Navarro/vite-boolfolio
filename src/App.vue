@@ -1,12 +1,9 @@
 <script>
 import axios from "axios";
 import { store } from "./data/store";
-import card from "./components/projectCard.vue";
 
 export default {
-	components: {
-		card,
-	},
+	components: {},
 	data() {
 		return {
 			projects: [],
