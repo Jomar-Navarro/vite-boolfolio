@@ -4,6 +4,7 @@ import Home from "./pages/Home.vue";
 import About from "./pages/About.vue";
 import Contacts from "./pages/Contacts.vue";
 import Error404 from "./pages/Error404.vue";
+import Projects from "./pages/Projects.vue";
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -12,6 +13,11 @@ const router = createRouter({
 			path: "/",
 			name: "home",
 			component: Home,
+		},
+		{
+			path: "/projects",
+			name: "projects",
+			component: Projects,
 		},
 		{
 			path: "/about",
