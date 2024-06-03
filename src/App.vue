@@ -11,10 +11,8 @@ export default {
 </script>
 
 <template>
-	<div class="container">
-		<Header />
-		<Main />
-	</div>
+	<Header />
+	<Main />
 	<div class="container">
 		<router-view></router-view>
 	</div>
