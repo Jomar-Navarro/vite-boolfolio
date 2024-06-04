@@ -1,6 +1,7 @@
 <script>
 import axios from "axios";
 import { store } from "@/data/store";
+
 export default {
 	name: "Details",
 
@@ -14,7 +15,7 @@ export default {
 		getApi() {
 			const slug = this.$route.params.slug;
 			axios
-				.get(store + "project-by-slug/" + slug)
+				.get(store.apiUrl + "project-by-slug/" + slug)
 				.then((result) => {
 					this.project = result.data.project;
 					console.log(this.project);
@@ -33,7 +34,7 @@ export default {
 
 <template>
 	<div>
-		<h1>~ {{ project.title }} ~</h1>
+		<h1>{{ project.title }}</h1>
 		<p>
 			{{ project.description }}
 		</p>
