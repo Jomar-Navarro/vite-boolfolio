@@ -58,6 +58,11 @@ export default {
 							<div class="card-body">
 								<h5 class="card-title">{{ project.title }}</h5>
 								<p class="card-text">{{ project.description }}</p>
+								<router-link
+									:to="{ name: 'details', params: { slug: project.slug } }"
+									class="btn btn-info"
+									>Show Details</router-link
+								>
 							</div>
 						</div>
 					</div>
