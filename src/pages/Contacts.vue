@@ -17,6 +17,11 @@ export default {
 			sending: false,
 			sent: false,
 			error: null,
+			errors: {
+				name: "",
+				email: "",
+				message: "",
+			},
 		};
 	},
 
