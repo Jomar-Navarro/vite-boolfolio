@@ -15,7 +15,7 @@ export default {
 	methods: {
 		getApi() {
 			axios
-				.get(store.apiUrl)
+				.get(store.apiUrl + "projects/")
 				.then((result) => {
 					this.loading = false;
 					this.projects = result.data;
@@ -39,7 +39,6 @@ export default {
 	<div>
 		<div class="main-wrapper">
 			<div class="container my-5">
-				<h1>Boolfolio Home</h1>
 				<div v-if="!loading">
 					<h3>My Projects</h3>
 

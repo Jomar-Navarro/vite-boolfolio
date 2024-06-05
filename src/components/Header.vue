@@ -9,7 +9,6 @@ export default {
 		<div class="container">
 			<nav class="navbar navbar-expand-lg" data-bs-theme="dark">
 				<div class="container-fluid">
-					<a class="navbar-brand fw-bolder fs-3" href="#">Boolfolio</a>
 					<button
 						class="navbar-toggler"
 						type="button"

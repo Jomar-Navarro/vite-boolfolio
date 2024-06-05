@@ -35,10 +35,16 @@ export default {
 <template>
 	<div>
 		<h1>{{ project.title }}</h1>
+		<img class="thumb" :src="project.image" alt="" />
 		<p>
 			{{ project.description }}
 		</p>
 	</div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.thumb {
+	width: 150px;
+	height: 150px;
+}
+</style>
